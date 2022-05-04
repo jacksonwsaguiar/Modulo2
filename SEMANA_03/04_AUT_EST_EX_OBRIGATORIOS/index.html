@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="vi" type="text" placeholder="Velocidade inicial" />
+
+    <button type="button" onclick="calculate()">Calcular</button>
+    <button type="reset" onclick="reset()">Resetar</button>
+    
+    <br />
+    <h4 id="ts"></h4>
+    <p id="ts_awnser"></p>
+    <h4 id="hmax"></h4>
+    <p id="hmax_awnser"></p>
+
+    <script>
+      function calculate() {
+        var g = 10;
+        var initialValue = document.getElementById("vi").value;
+        var ts = initialValue / g;
+        var hmax = ((initialValue * initialValue) / 2) * g;
+
+        document.getElementById("ts").innerHTML = "Tempo total de subida:";
+        document.getElementById("ts_awnser").innerHTML = ts;
+        document.getElementById("hmax").innerHTML = "Altura máxima:";
+        document.getElementById("hmax_awnser").innerHTML = hmax;
+      }
+      function reset() {
+        document.getElementById("ts").innerHTML = "";
+        document.getElementById("ts_awnser").innerHTML = "";
+        document.getElementById("hmax").innerHTML = "";
+        document.getElementById("hmax_awnser").innerHTML = "";
+        document.getElementById("vi").value = "";
+      }
+    </script>
+  </body>
+</html>
