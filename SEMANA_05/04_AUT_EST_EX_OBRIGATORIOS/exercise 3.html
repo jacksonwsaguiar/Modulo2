@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 3</title>
+  </head>
+  <body>
+    <input type="text" id="values" placeholder="valores" />
+    <input type="number" id="mainValue" placeholder="valor foco" />
+    <button onclick="calculate()">Calcular</button>
+    <br />
+    <br />
+    <div id="list"></div>
+    <div id="position"></div>
+
+    <script>
+      function calculate() {
+        var values = document.getElementById("values").value;
+        var main = document.getElementById("mainValue").value;
+        values = values.split(",");
+
+        document.getElementById("list").innerHTML =
+          "lista ordenada: " + bubbleSort(values).join(",");
+
+        var position = findValuePosition(main, values);
+        var htmlText = "Posição do valor foco: ";
+
+        if (position != -1) htmlText += position;
+        else htmlText += "Valor não está presente na lista";
+
+        document.getElementById("position").innerHTML = htmlText;
+      }
+
+      function bubbleSort(arr = []) {
+        for (let i = 0; i < arr.length; i++) {
+          var aux;
+          for (let j = i; j < arr.length; j++) {
+            if (parseInt(arr[i]) > parseInt(arr[j])) {
+              aux = arr[i];
+              arr[i] = arr[j];
+              arr[j] = aux;
+            }
+          }
+        }
+        return arr;
+      }
+
+      function findValuePosition(value, array = []) {
+        for (let index = 0; index < array.length; index++) {
+          if (array[index] == value) return index + 1;
+        }
+        return -1;
+      }
+    </script>
+  </body>
+</html>

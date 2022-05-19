@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 1</title>
+  </head>
+  <body>
+    <input id="value1" type="number" placeholder="valor 1" />
+    <input id="value2" type="number" placeholder="valor 2" />
+    <button onclick="calculate()">Calcular</button>
+    <button onclick="clear()">Limpar</button>
+
+    <ul id="result">
+      <li id="a"></li>
+      <li id="b"></li>
+      <li id="c"></li>
+      <li id="d"></li>
+      <li id="e"></li>
+      <li id="f"></li>
+    </ul>
+
+    <script>
+      clear();
+
+      function clear() {
+        document.getElementById("result").style.display = "none";
+        document.getElementById("value1").value = "";
+        document.getElementById("value2").value = "";
+      }
+      function sum(n1, n2) {
+        return n1 + n2;
+      }
+      function subtraction(n1, n2) {
+        return n1 - n2;
+      }
+      function multiplication(n1, n2) {
+        return n1 * n2;
+      }
+      function division(n1, n2) {
+        return n1 / n2;
+      }
+      function intDivision(n1, n2) {
+        return parseInt(division(n1, n2));
+      }
+      function rest(n1, n2) {
+        return n1 % n2;
+      }
+      function calculate() {
+        document.getElementById("result").style.display = "block";
+        var value1 = document.getElementById("value1").value;
+        var value2 = document.getElementById("value2").value;
+
+        document.getElementById("a").innerHTML =
+          "a. " + value1 + " + " + value2 + " = " + sum(value1, value2);
+        document.getElementById("b").innerHTML =
+          "b. " + value1 + " - " + value2 + " = " + subtraction(value1, value2);
+        document.getElementById("c").innerHTML =
+          "c. " +
+          value1 +
+          " * " +
+          value2 +
+          " = " +
+          multiplication(value1, value2);
+        document.getElementById("d").innerHTML =
+          "d. " + value1 + " / " + value2 + " = " + division(value1, value2);
+        document.getElementById("e").innerHTML =
+          "e. " +
+          value1 +
+          " // " +
+          value2 +
+          " = " +
+          intDivision(value1, value2);
+        document.getElementById("f").innerHTML =
+          "f. " + value1 + " % " + value2 + " = " + rest(value1, value2);
+      }
+    </script>
+  </body>
+</html>
