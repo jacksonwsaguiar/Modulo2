@@ -30,7 +30,6 @@ app.use(express.json());
 app.get("/user", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Access-Control-Allow-Origin", "*");
-
   var db = new sqlite3.Database(DBPATH);
   var sql = "SELECT * FROM user where id=1";
   db.get(sql, [], (err, rows) => {

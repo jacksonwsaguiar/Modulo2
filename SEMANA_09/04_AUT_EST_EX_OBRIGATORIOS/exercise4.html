@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="n" />
+    <button onclick="calculate()">Calcular</button>
+
+    <script>
+      function calculate() {
+        var value = parseInt(document.getElementById("n").value);
+        var index = 0;
+        var nextValue = 0;
+        var sequence = [];
+
+        if (value > 0) {
+          while (nextValue < value) {
+            if (sequence.length > 1) {
+              nextValue = sequence[index - 1] + sequence[index - 2];
+              if (nextValue > value) {
+                break;
+              } else sequence.push(nextValue);
+            } else sequence.push(1);
+            index++;
+          }
+        }
+        alert(sequence);
+      }
+    </script>
+  </body>
+</html>

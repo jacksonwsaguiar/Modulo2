@@ -66,7 +66,6 @@ async function updateRecomendation() {
 }
 
 async function deleteRecomendation(id) {
-  // console.log(id);
   await $.ajax({
     type: "DELETE",
     url: url + "recomendation/" + id,

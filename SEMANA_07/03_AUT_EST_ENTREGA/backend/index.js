@@ -25,11 +25,9 @@ var db = new sqlite3.Database(DBPATH);
 app.use(express.static("../frontend/"));
 
 app.use(express.json());
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
 app.use(bodyParser.json())
+
 /* Definição dos endpoints */
 app.post("/recomendation", (req, res) => {
   res.statusCode = 200;

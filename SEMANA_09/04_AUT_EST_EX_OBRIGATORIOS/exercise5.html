@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="intervalo" id="interval" />
+    <button onclick="calculate()">Calcular</button>
+
+    <script>
+      function calculate() {
+        var interval = document.getElementById("interval").value;
+
+        var n1 = parseInt(interval.split(",")[0]);
+        var n2 = parseInt(interval.split(",")[1]);
+
+        var numbers = [];
+
+        for (let index = n1; index < n2; index++) {
+          if (isPrime(index)) numbers.push(index);
+        }
+        alert(numbers);
+      }
+
+      function isPrime(num) {
+        if (num > 1) {
+          for (let index = 2; index < num; index++) {
+            if (num % index == 0) return false;
+          }
+          return true;
+        } else return false;
+      }
+    </script>
+  </body>
+</html>
